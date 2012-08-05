@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <title><%= yield(:title).blank? ? '游之都 —— 靠谱的游戏，靠谱的人！' : yield(:title) %></title>
+  <meta content="<%= yield(:keywords).blank? ? '' : yield(:keywords) %>" name="keywords">
+  <meta content="<%= yield(:description).blank? ? '' : yield(:description) %>" name="description">
+  <%= stylesheet_link_tag "application", :media => "all" %>
+  <%= yield(:stylesheet) %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+  <%= render 'common/header' %>
+  <div class="clearfix"></div>
+  <div class="container">
+    <%= yield %>
+  </div>
+  <%= render 'common/footer' %>
+
+  <%= javascript_include_tag "application" %>
+  <%= yield(:javascript) %>
+</body>
+</html>
